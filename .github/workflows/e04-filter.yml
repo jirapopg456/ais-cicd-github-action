@@ -1,0 +1,14 @@
+# E4 — narrowing a trigger: which branch, and which files changed.
+name: E4 Filters
+on:
+  push:
+    branches: [main, 'feature/**']
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - '!**/*.md'
+jobs:
+  scoped:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "ran because a file under src/ or tests/ changed on an allowed branch"

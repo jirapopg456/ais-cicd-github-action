@@ -1,0 +1,14 @@
+# E5 — a cron trigger, and a manual one beside it so you can test the job
+# without waiting for the clock.
+name: E5 Scheduled
+on:
+  schedule:
+    - cron: '0 6 * * 1-5'      # 06:00 UTC, Monday to Friday
+  workflow_dispatch:
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "event = $GITHUB_EVENT_NAME"
+          date -u +"started %Y-%m-%d %H:%M UTC"

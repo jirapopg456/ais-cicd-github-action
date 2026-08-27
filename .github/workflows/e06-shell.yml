@@ -1,0 +1,34 @@
+# E6 — run: is a shell command. Four things you can do with it.
+name: E6 The run key
+on: workflow_dispatch
+jobs:
+  commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: One command
+        run: echo "one line"
+
+      - name: Several commands, one shell
+        run: |
+          echo "first"
+          echo "second"
+          echo "they share a shell, so this works:"
+          X=5
+          echo "X is $X"
+
+      - name: A new step is a NEW shell
+        run: echo "X is now '$X' — empty, because the shell ended"
+
+      - name: Environment for one step
+        run: echo "LOG_LEVEL=$LOG_LEVEL"
+        env:
+          LOG_LEVEL: debug
+
+      - name: Somewhere else on disk
+        run: pwd
+        working-directory: /tmp
+
+      - name: The exit code is the verdict
+        run: |
+          echo "about to exit 0"
+          true

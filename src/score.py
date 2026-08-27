@@ -4,6 +4,7 @@
 # This task holds no checks. It runs only if data_checks succeeded, and its
 # output is validated by model_checks before publish runs. The functions are
 # the same ones the test suite exercises locally.
+# Comment for testing e4-filter
 
 # COMMAND ----------
 

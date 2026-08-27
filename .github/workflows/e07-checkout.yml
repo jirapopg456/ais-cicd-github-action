@@ -1,0 +1,19 @@
+# E7 — uses: runs code someone published. checkout is the one you always need.
+name: E7 Checkout
+on: workflow_dispatch
+jobs:
+  look:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Before checkout — what is on the machine
+        run: |
+          echo "files here: $(ls -1A | wc -l)"
+          ls -1A || true
+
+      - name: Put the repository on the machine
+        uses: actions/checkout@v4
+
+      - name: After checkout
+        run: |
+          echo "files here: $(ls -1A | wc -l)"
+          ls -1
