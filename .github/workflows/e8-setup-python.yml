@@ -14,6 +14,6 @@ jobs:
           # cache: pip looks for requirements.txt or pyproject.toml by
           # default. This repository pins its toolchain elsewhere, so the
           # path has to be named or the step fails before any test runs.
-          cache-dependency-path: requirements-dev.txt
-      - run: pip install -r requirements-dev.txt
+          cache-dependency-path: requirements.txt
+      - run: pip install -r requirements.txt
       - run: pytest -m "not spark" -q
