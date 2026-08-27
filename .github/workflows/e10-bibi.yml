@@ -1,0 +1,16 @@
+# E10 — two jobs start at the same time, on two different machines.
+name: E10 Parallel
+on: workflow_dispatch
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "lint starting"
+      - run: sleep 2
+      - run: echo "lint done"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "test starting"
+      - run: sleep 2
+      - run: echo "test done"
