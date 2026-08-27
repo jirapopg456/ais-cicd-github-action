@@ -1,0 +1,17 @@
+# E12 — needs: imposes order on jobs that would otherwise run together.
+name: E12 Needs
+on: workflow_dispatch
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "lint"
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "test"
+  publish:
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "publish — only after BOTH finished"

@@ -1,0 +1,19 @@
+# E8 — uses: with inputs. An action you configure rather than just call.
+name: E8 Set up Python
+on: [push, workflow_dispatch]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          # cache: pip looks for requirements.txt or pyproject.toml by
+          # default. This repository pins its toolchain elsewhere, so the
+          # path has to be named or the step fails before any test runs.
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install -r requirements-dev.txt
+      - run: pytest -m "not spark" -q
