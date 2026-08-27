@@ -1,0 +1,11 @@
+# E11 — a matrix turns one job definition into several jobs.
+name: E11 Matrix
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.11", "3.12"]
+    steps:
+      - run: echo "testing against Python ${{ matrix.python }}"
