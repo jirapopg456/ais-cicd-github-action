@@ -5,7 +5,7 @@ is both the instructor's demo bundle and the catch-up artefact: a participant wh
 falls behind copies the missing piece from here and moves forward.
 
 ## Layout
-
+## update 
 ```
 databricks.yml              two targets; variables catalog, schema, cluster_id, corrupt;
                             nothing is excluded, so tests/ deploys with the bundle
