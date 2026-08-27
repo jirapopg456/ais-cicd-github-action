@@ -1,0 +1,9 @@
+name: E2 Only on pull request
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "this only happens for a pull request targeting main"

@@ -1,0 +1,16 @@
+# E1 — the smallest workflow that runs.
+name: E1 Hello
+
+on: push
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: echo "Hello from a GitHub Actions runner"
+      - name: Describe the machine
+        run: |
+          echo "runner OS : $RUNNER_OS"
+          echo "event     : $GITHUB_EVENT_NAME"
+          echo "repository: $GITHUB_REPOSITORY"

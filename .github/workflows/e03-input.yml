@@ -1,0 +1,24 @@
+# E3 — a button in the interface, with a typed input.
+name: E3 Manual
+on:
+  workflow_dispatch:
+    inputs:
+      who:
+        description: Who to greet
+        required: true
+        default: the class
+      shout:
+        description: Upper case
+        type: boolean
+        default: false
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use the inputs
+        run: |
+          echo "who   = ${{ inputs.who }}"
+          echo "shout = ${{ inputs.shout }}"
+      - name: Conditional on an input
+        if: ${{ inputs.shout }}
+        run: echo "${{ inputs.who }}" | tr '[:lower:]' '[:upper:]'

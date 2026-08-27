@@ -87,3 +87,6 @@ In both cases the tasks below the failure report `UPSTREAM_FAILED`.
   `bundle run run_tests` is the deployed suite on the real runtime; the
   `data_checks` and `model_checks` tasks apply the same check functions from
   `src/churn/checks.py` to the real data inside the run.
+
+======
+Test E2
